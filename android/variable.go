@@ -407,7 +407,7 @@ func (v *productVariables) SetDefaultConfig() {
 		Safestack:                boolPtr(false),
 =======
 		Malloc_not_svelte:            boolPtr(true),
-		Malloc_zero_contents:         boolPtr(false),
+		Malloc_zero_contents:         boolPtr(true),
 		Malloc_pattern_fill_contents: boolPtr(false),
 		Safestack:                    boolPtr(false),
 >>>>>>> 1b4ef054... [soong] Zero and pattern initialization of heap memory.
