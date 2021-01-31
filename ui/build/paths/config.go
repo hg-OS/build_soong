@@ -74,13 +74,14 @@ func GetConfig(name string) PathConfig {
 }
 
 var Configuration = map[string]PathConfig{
+	"aarch64-linux-gnu-as": Allowed,
 	"bash":    Allowed,
 	"bison":   Log,
 	"brotli":  Allowed,
 	"ccache":  Allowed,
 	"date":    Allowed,
 	"depmod":  Allowed,
-	"dd":      Allowed,
+        "dd":      Allowed,
 	"diff":    Allowed,
 	"dlv":     Allowed,
 	"expr":    Allowed,
