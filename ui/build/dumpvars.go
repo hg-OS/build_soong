@@ -137,17 +137,15 @@ func dumpMakeVars(ctx Context, config Config, goals, vars []string, write_soong_
 
 // Variables to print out in the top banner
 var BannerVars = []string{
-	"PROD_VERSION",
-	"PLATFORM_VERSION_CODENAME",
+        "PRODUCT_MODEL",
 	"PLATFORM_STYX_RELEASE",
+	"PLATFORM_STYX_VERSION",
+	"STYX_BUILD_VARIANT",
 	"PLATFORM_VERSION",
 	"TARGET_PRODUCT",
 	"TARGET_BUILD_VARIANT",
-	"TARGET_BUILD_TYPE",
 	"TARGET_ARCH",
 	"HOST_ARCH",
-	"HOST_OS",
-	"HOST_BUILD_TYPE",
 	"OUT_DIR",
 	"PRODUCT_SOONG_NAMESPACES",
 }
@@ -155,29 +153,9 @@ var BannerVars = []string{
 func Banner(make_vars map[string]string) string {
 	b := &bytes.Buffer{}
 	fmt.Fprintln(b, "============================================")
-	fmt.Fprintln(b, "  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  ")
-	fmt.Fprintln(b, "  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  ")
-	fmt.Fprintln(b, "  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  ")
-	fmt.Fprintln(b, "  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  ")
-	fmt.Fprintln(b, "  @@@@@@@@@@@@@@@@@@@      @@@@@@@@@@.      ")
-	fmt.Fprintln(b, "  @@@@@@@@@@@@@@@@            @@&           ")
-	fmt.Fprintln(b, "  @@@@@@@@@@@@@@@                     @@@@  ")
-	fmt.Fprintln(b, "  @@@@@@@@@@@@@@@                *@@@@@@@@  ")
-	fmt.Fprintln(b, "  @@@@@@@@@@@@@@@@           @@@@@@@@@@@@@  ")
-	fmt.Fprintln(b, "  @@@@@@@@@@@/              @@@@@@@@@@@@@@  ")
-	fmt.Fprintln(b, "  @@@@@@@                   @@@@@@@@@@@@@@  ")
-	fmt.Fprintln(b, "   @          &            @@@@@@@@@@@@@@@  ")
-	fmt.Fprintln(b, "          @@@@@@,        *@@@@@@@@@@@@@@@@  ")
-	fmt.Fprintln(b, "     @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  ")
-	fmt.Fprintln(b, "  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  ")
-	fmt.Fprintln(b, "  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  ")
-	fmt.Fprintln(b, "  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@  ")
-	fmt.Fprintln(b, "                                            ")
-	fmt.Fprintln(b, "            The Styx OS Project             ")
-	fmt.Fprintln(b, "============================================")
 	for _, name := range BannerVars {
 		if make_vars[name] != "" {
-			fmt.Fprintf(b, "%s=%s\n", name, make_vars[name])
+			fmt.Fprintf(b, "%s: %s\n", name, make_vars[name])
 		}
 	}
 	fmt.Fprint(b, "============================================")
