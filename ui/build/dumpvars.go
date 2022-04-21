@@ -139,10 +139,10 @@ func dumpMakeVars(ctx Context, config Config, goals, vars []string, write_soong_
 var BannerVars = []string{
 	"PLATFORM_STYX_RELEASE",
 	"PLATFORM_STYX_BUILD_ID",
+	"PLATFORM_STYX_PACKAGE",
 	"PLATFORM_VERSION",
 	"PRODUCT_MODEL",
 	"TARGET_PRODUCT",
-	"PROD_VERSION",
 	"TARGET_BUILD_VARIANT",
 	"BUILD_ID",
 	"OUT_DIR",
